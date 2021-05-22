@@ -13,7 +13,7 @@ const NavBar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   return (
-    <div>
+    <div style={{ position: "sticky", top: 0, zIndex: 3 }}>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand as={Link} to="/home">
           Ran-Quote
