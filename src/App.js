@@ -6,6 +6,8 @@ import MySuggestion from "../src/Components/MySuggestion/MySuggestion";
 import Login from "./Components/Login/Login";
 import { createContext, useState } from "react";
 import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import SavedQuotes from "./Components/SavedQuotes/SavedQuotes";
 
 export const UserContext = createContext();
 
@@ -22,12 +24,15 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/mysuggestion">
+            <PrivateRoute path="/mysuggestion">
               <MySuggestion></MySuggestion>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
+            <PrivateRoute path="/savedquotes">
+              <SavedQuotes></SavedQuotes>
+            </PrivateRoute>
           </Switch>
         </Router>
       </div>

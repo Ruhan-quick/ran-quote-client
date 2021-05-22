@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Button,
   Form,
@@ -8,7 +8,10 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 const NavBar = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -28,7 +31,7 @@ const NavBar = () => {
               Saved Quotes
             </Nav.Link>
             <Button className="ml-3" variant="secondary" as={Link} to="/login">
-              Login
+              {loggedInUser.displayName || "Login"}
             </Button>{" "}
           </Nav>
         </Navbar.Collapse>

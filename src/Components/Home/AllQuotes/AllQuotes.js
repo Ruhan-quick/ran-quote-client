@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import QuoteCard from "../QuoteCard/QuoteCard";
-
+import { Link } from "react-router-dom";
 const AllQuotes = () => {
   const [allQuotes, setAllQuotes] = useState([]);
   useEffect(() => {
@@ -18,7 +18,12 @@ const AllQuotes = () => {
   return (
     <div>
       <div style={{ textAlign: "center" }}>
-        <Button className="ml-3 mt-3" variant="outline-secondary">
+        <Button
+          as={Link}
+          to="/mysuggestion"
+          className="ml-3 mt-3"
+          variant="outline-secondary"
+        >
           Suggest Me One
         </Button>{" "}
       </div>
