@@ -7,7 +7,7 @@ const QuoteCard = ({ author, text, source }) => {
     const email = loggedInUser.email;
     const dataTs = { email, author, text, source };
     console.log("dataTs", dataTs);
-    fetch("http://localhost:5000/saveQuote", {
+    fetch("https://quiet-waters-49071.herokuapp.com/saveQuote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataTs),
@@ -25,13 +25,16 @@ const QuoteCard = ({ author, text, source }) => {
       alert("Please Login to Save.");
     }
   };
+  const handleLikeControl = () => {
+    alert("Like functionality is not added yet.");
+  };
   return (
     <div>
       <div className="cardStyle">
         <h4>"{text}"</h4>
         <h5 style={{ textAlign: "right", marginRight: "20px" }}>{author}</h5>
         <div className="row likeSave">
-          <div className="col-6 like">
+          <div onClick={handleLikeControl} className="col-6 like">
             <h5>Like</h5>
           </div>
           <div onClick={handleSaveControl} className="col-6 save">

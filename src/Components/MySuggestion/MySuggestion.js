@@ -29,7 +29,7 @@ const MySuggestion = () => {
     const email = loggedInUser.email;
     const dataTs = { email, ...squote };
     console.log("dataTs", dataTs);
-    fetch("http://localhost:5000/saveQuote", {
+    fetch("https://quiet-waters-49071.herokuapp.com/saveQuote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataTs),

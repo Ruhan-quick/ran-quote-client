@@ -7,7 +7,10 @@ const SavedQuotes = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/savedquotes?email=" + loggedInUser.email)
+    fetch(
+      "https://quiet-waters-49071.herokuapp.com/savedquotes?email=" +
+        loggedInUser.email
+    )
       .then((res) => res.json())
       .then((data) => setSavedQuotes(data));
   }, []);
@@ -25,6 +28,7 @@ const SavedQuotes = () => {
             <h5 style={{ textAlign: "right", marginRight: "20px" }}>
               {s.author}
             </h5>
+            <h6 className="pb-2">Source: {s.source}</h6>
           </div>
         </div>
       ))}
